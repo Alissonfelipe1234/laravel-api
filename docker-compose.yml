@@ -39,8 +39,10 @@ services:
     restart: unless-stopped
     ports:
       - "8000:80"
+      - "8001:81"
     volumes:
       - ./laravel-app:/var/www
+      - ./doc/htdoc:/var/www/htdoc
       - ./nginx:/etc/nginx/conf.d
     networks:
       - arquivei-private
