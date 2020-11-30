@@ -15,7 +15,7 @@ use App\Http\Controllers\NfeController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return response("Documentação acesse: <a href='http://localhost:8001'> http://localhost:8001 </a>", 200);
 });
 
 Route::get('nfe/{acess_key}', [NfeController::class, 'show']);
