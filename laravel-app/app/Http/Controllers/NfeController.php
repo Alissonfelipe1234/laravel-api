@@ -36,9 +36,15 @@ class NfeController extends Controller
      */
     public function show(string $acess_key)
     {
-        $result = nfe::where('acess_key', $acess_key)->first()['xml'];
-        $nfe = $this->formatXml(base64_decode($result));
-        return response($nfe, 200)->header('Content-Type', 'text/plain');
+        $result = nfe::where('acess_key', $acess_key)->first();
+        if(!isset($result))
+            return response()->json(['error'=>'NfeNotFound'], 404);
+
+        $nfe = $this->formatXml(base64_decode($result['xml']));
+        return response()->json(['xml'=>$nfe], 200);
+
+        // return response($nfe, 200)->header('Content-Type', 'text/plain');
+        // pretty print for developers
 
         /**
          * only 50 unique rows in the database, which means that the test
