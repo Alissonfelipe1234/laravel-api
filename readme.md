@@ -23,5 +23,5 @@ docker-compose exec app php artisan command:update
 ```
 
 > Foram criados dois endereços:
-> - *[API](https://localhost:8000)*
-> - *[Documentação](https://localhost:8001)*
+> - *[API](http://localhost:8000)*
+> - *[Documentação](http://localhost:8001)*
